@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
+import { Grupo } from '../model/Grupo';
 import { Usuario } from '../model/Usuario';
-import { AuthService } from '../service/auth.service';
+import { GrupoService } from '../service/grupo.service';
 
 @Component({
   selector: 'app-home',
@@ -17,47 +18,41 @@ export class HomeComponent implements OnInit {
   tipUser: string
   confiSenha: string
 
+  grupo: Grupo = new Grupo()
+  listaGrupo: Grupo[]
 
-  constructor(
+
+  constructor(  
+    
     private authService: AuthService,
     private router: Router
+    private grupoService: GrupoService
+
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
-    if(environment.token == ''){
-      this.router.navigate(['/entrar'])
-    }
+    
+    this.findAllTemas()
 
-    this.findByIdUser(this.idUser)
   }
 
-    confirmSenha(event: any){
-      this.confiSenha = event.target.value
-    }
+  entrar(){
+   
+  }
 
-    tipoUser(event: any){
-      this.tipUser = event.target.value
-    }
+  findAllTemas(){
+    this.grupoService.getAllGrupo().subscribe((resp: Grupo[])=>{
+      this.listaGrupo = resp
+    })
+  }
 
-    atualizar(){
-      this.user.tipo = this.tipUser
-
-      if (this.user.senha != this.confiSenha) {
-        alert('As senhas estão incorretas')
-      } else {
-        this.authService.cadastrar(this.user).subscribe((resp: Usuario)=> {
-          this.user = resp
-          this.router.navigate(['/entrar'])
-          alert('Usuário atualizado com sucesso, se logue novamente!')
-        })
-      }
-  
-    }
-
-    findByIdUser(id: number){
-      this.authService.getByIdUser(id).subscribe((resp: Usuario)=> {
-        this.user = resp
-      })
-    }
-}
+  cadastrar(){
+    this.grupoService.postGrupo(this.grupo).subscribe((resp:Grupo)=>{
+      this.grupo = resp
+      this.findAllTemas()
+      alert('Grupo cadastrado com sucesso!')
+      this.grupo = new Grupo()
+      
+    })
+  }
+  }

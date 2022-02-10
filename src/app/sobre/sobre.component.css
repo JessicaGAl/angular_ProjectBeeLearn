@@ -8,3 +8,12 @@ ul.social-network{
     margin: 0;
     padding: 5px;
 }
+
+.li:hover{
+
+    color: #C13584;
+}
+
+.bg-color{
+  background: #be6f25
+}

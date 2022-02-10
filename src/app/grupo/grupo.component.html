@@ -82,7 +82,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink='/home'>Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)='apagar()'>Confirmar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)='apagar()'>Confirmar</button>
       </div>
     </div>
   </div>
@@ -119,10 +119,10 @@
   
 
         <div class="form-group">
-          <label for="texto">Escolha um tema: </label>
-          <select name="tema" id="tema" class="form-control" [(ngModel)]='GrupoId' (change) = 'findByIdPostGrupo()' >
+          <label for="texto">Escolha um grupo: </label>
+          <select name="grupo" id="grupo" class="form-control" [(ngModel)]='GrupoId' (change)='findByIdPostGrupo()' >
             <option *ngFor='let item of listaGrupo' value="{{item.idGrupo}}">
-              {{item.descricao}}
+              {{item.nomeGrupo}}
             </option>
           </select>
         </div>
@@ -165,8 +165,8 @@
 </div>
       
 <div class="form-group">
-  <label for="texto">Escolha um tema: </label>
-  <select name="tema" id="tema" class="form-control" [(ngModel)]='GrupoId'>
+  <label for="texto">Escolha um grupo: </label>
+  <select name="grupo" id="grupo" class="form-control" [(ngModel)]='GrupoId'>
     <option *ngFor='let item of listaGrupo' value="{{item.idGrupo}}">
       {{item.descricao}}
     </option>

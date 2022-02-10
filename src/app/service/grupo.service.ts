@@ -15,6 +15,10 @@ export class GrupoService {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
+  postGrupo(grupo: Grupo): Observable<Grupo>{
+    return this.http.post<Grupo>('http://localhost:8080/grupo', grupo, this.token)
+  }
+
   getAllGrupo(): Observable<Grupo[]>{
     return this.http.get<Grupo[]>('http://localhost:8080/grupo', this.token)
   }
@@ -22,6 +26,11 @@ export class GrupoService {
   getByIdGrupo(idGrupo: number): Observable<Grupo>{
     return this.http.get<Grupo>(`http://localhost:8080/grupo/${idGrupo}`, this.token)
   }
+
+  postgrupo(grupo: Grupo): Observable<Grupo>{
+    return this.http.post<Grupo>('http://localhost:8080/grupo', grupo, this.token)
+  }
+
 
   putGrupo(grupo: Grupo): Observable<Grupo>{
     return this.http.put<Grupo>('http://localhost:8080/grupo', grupo, this.token)

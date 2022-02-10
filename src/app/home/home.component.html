@@ -48,7 +48,7 @@
             </div>
             <div class="modal-body">
                 <!--Tabela de grupos-->
-                <table class="table table-borderless">
+                <table class="table table-borderless table-hover">
                     <thead id="color-thead">
                         <tr>
                             <th scope="col">Nome do grupo</th>
@@ -56,9 +56,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Grupo de geografia</td>
-                            <td class="d-flex justify-content-end"><button class="btn btn-success">Entrar</button></td>
+                        <tr *ngFor="let i of listaGrupo">
+                            <td>{{i.nomeGrupo}}</td>
+                            <td data-bs-dismiss="modal" [routerLink]="['/grupo' , i.idGrupo]" class="d-flex justify-content-end"><button class="btn btn-success">Entrar</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -82,15 +82,15 @@
                
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Digite o nome do grupo">
+                    <input [(ngModel)]="grupo.nomeGrupo" type="text" class="form-control" id="floatingInput" placeholder="Digite o nome do grupo">
                     <label for="floatingInput">Nome</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Digite a descrição do grupo">
+                    <input [(ngModel)]="grupo.descricao" type="text" class="form-control" id="floatingInput" placeholder="Digite a descrição do grupo">
                     <label for="floatingPassword">Descrição</label>
                   </div>
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Coloque a url de imagem">
+                    <input [(ngModel)]="grupo.urlImagem" type="text" class="form-control" id="floatingInput" placeholder="Coloque a url de imagem">
                     <label for="floatingPassword">Url de imagem</label>
                   </div>
 
@@ -98,7 +98,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cadastrar</button>
+                <button (click)="cadastrar()" type="button" class="btn btn-success" data-bs-dismiss="modal">Cadastrar</button>
             </div>
         </div>
     </div>

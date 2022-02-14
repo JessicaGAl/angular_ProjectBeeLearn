@@ -1,0 +1,47 @@
+    #main-container{
+    position:relative;
+    }
+
+    #nome-grupo{
+    color: aliceblue;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 50px;
+
+    text-shadow: 
+    -1px -1px 0px rgb(0, 0, 0), 
+    -1px 1px 0px rgb(0, 0, 0),                    
+     1px -1px 0px rgb(0, 0, 0),                  
+     1px 0px 0px rgb(0, 0, 0);
+    }
+
+    #color-thead{
+    background-color: rgb(226, 226, 226);
+    }
+
+    #butoes-grupo{
+        position: absolute;
+    margin-top: -100px;
+    margin-left: 500px;
+    }
+
+    #editar{
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 700px;
+  
+    }
+
+    #deletar{
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 780px;
+  
+    }
+
+
+
+    #titulo{
+    width: 100%;
+
+    }

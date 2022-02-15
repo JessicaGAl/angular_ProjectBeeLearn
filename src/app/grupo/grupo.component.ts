@@ -53,8 +53,7 @@ this.GrupoId = this.route.snapshot.params['idGrupo']
    
 
 //POSTAGEM EDITAR E DELETE//
-  let idPost = this.route.snapshot.params ['idPost']
-  this.findByIdPostagem(idPost)
+
   this.findAllGrupo()
 
 //CRIAR POSTAGEM//
@@ -118,7 +117,7 @@ this.GrupoId = this.route.snapshot.params['idGrupo']
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
 
-      alert('Postagem atualizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem atualizada com sucesso!')
       this.router.navigate(['/home'])
 
 
@@ -127,7 +126,7 @@ this.GrupoId = this.route.snapshot.params['idGrupo']
 
   apagarPost(){
     this.postagemService.deletePostagem(this.PostId).subscribe(()=>{
-      this.alertas.showAlertSuccess('Grupo apagado com sucesso!')
+      this.alertas.showAlertSuccess('Postagem apagada com sucesso!')
       this.router.navigate(['/home'])
     })
   }
@@ -169,8 +168,12 @@ getAllGrupo(){
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
+      
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
+      this.router.navigate(['/home'])
+
       this.postagem = new Postagem()
+      
     })
   }
  

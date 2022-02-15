@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
         this.getAllGrupo()
         this.alertas.showAlertSuccess ('Grupo cadastrado com sucesso!')
         this.grupo = new Grupo()
-
+        
       
   
       })
@@ -111,6 +111,7 @@ export class HomeComponent implements OnInit {
       if (this.user.senha != this.confiSenha) {
         this.alertas.showAlertDanger('As senhas estão incorretas, tente novamente!')
         this.router.navigate(['/entrar'])
+
       } else {
         this.authService.cadastrar(this.user).subscribe((resp: Usuario)=> {
           this.user = resp

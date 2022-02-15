@@ -32,7 +32,7 @@
 
                         <span class="position-absolute translate-middle badge rounded-pill bg-dark edit-btn"
                             style="cursor: pointer;">
-                            <a data-bs-toggle="modal" data-bs-target="#updateUser"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-user-avatars-dreamstale-lineal-dreamstale-5.png"/></a>
+                            <a data-bs-toggle="modal" data-bs-target="#updateUser">Editar</a>
                             <span class="visually-hidden">unread messages</span>
                         </span>
 
@@ -67,12 +67,12 @@
 
                
                 <ul class="nav nav-pills mb-3 d-flex justify-content-center col-md-12" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Grupos</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button (click)='findByIdUserPost()' class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Minhas Postagens</button>
-                    </li>
+                     <nav class="nav nav-justified p-0 m-0" *ngIf='listaGrupo'>
+                    <a class="nav-link text-light bg-gradient" style="background-color:   #100f0db9; width: 1000px;"
+                    id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="false">Todos os Grupos</a>
+                    <a class="nav-link text-light bg-gradient" style="background-color:   #100f0db9;" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Minhas
+                        Postagens</a>
+                </nav>
                    
                   </ul>
                 
@@ -82,7 +82,7 @@
                         <div class="row justify-content-center align-items-end" >
                             <div class="col-md-4" *ngFor='let i of listaGrupo'>
                 
-                                <div class="card-columns post-tab" >
+                                <div class="card-columns post-tab mb-5" >
                                     <div class="card" >
                                         <img [routerLink]="['/grupo' , i.idGrupo]"  src="{{i.urlImagem}}"
                                             class="card-img-top img-grup" style="cursor: pointer;" >
@@ -122,7 +122,7 @@
                           
                     </div>
                 
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Explore</div>
+                   
                 
                   </div>
 
@@ -143,17 +143,17 @@
 
 
                 <div class="form-floating mb-3">
-                    <input [(ngModel)]="grupo.nomeGrupo" type="text" class="form-control" id="floatingInput"
+                    <input [(ngModel)]="grupo.nomeGrupo" type="text" class="form-control" id="floatingInput1"
                         placeholder="Digite o nome do grupo">
                     <label for="floatingInput">Nome</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input [(ngModel)]="grupo.descricao" type="text" class="form-control" id="floatingInput"
+                    <input [(ngModel)]="grupo.descricao" type="text" class="form-control" id="floatingInput2"
                         placeholder="Digite a descrição do grupo">
                     <label for="floatingPassword">Descrição</label>
                 </div>
                 <div class="form-floating">
-                    <input [(ngModel)]="grupo.urlImagem" type="text" class="form-control" id="floatingInput"
+                    <input [(ngModel)]="grupo.urlImagem" type="text" class="form-control" id="floatingInput3"
                         placeholder="Coloque a url de imagem">
                     <label for="floatingPassword">Url de imagem</label>
                 </div>

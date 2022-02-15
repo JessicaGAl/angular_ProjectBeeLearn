@@ -99,6 +99,7 @@ export class HomeComponent implements OnInit {
         this.getAllGrupo()
         this.alertas.showAlertSuccess ('Grupo cadastrado com sucesso!')
         this.grupo = new Grupo()
+
       
   
       })

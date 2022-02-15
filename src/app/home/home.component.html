@@ -32,7 +32,7 @@
 
                         <span class="position-absolute translate-middle badge rounded-pill bg-dark edit-btn"
                             style="cursor: pointer;">
-                            <a data-bs-toggle="modal" data-bs-target="#updateUser">Editar</a>
+                            <a data-bs-toggle="modal" data-bs-target="#updateUser"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-user-avatars-dreamstale-lineal-dreamstale-5.png"/></a>
                             <span class="visually-hidden">unread messages</span>
                         </span>
 
@@ -63,6 +63,7 @@
 
         <div class="row justify-content-center mt-3">
             <div class="col-md-9">
+
 
                
                 <ul class="nav nav-pills mb-3 d-flex justify-content-center col-md-12" id="pills-tab" role="tablist">
@@ -96,6 +97,7 @@
                     
                             </div>
 
+
                         </div>               
                     </div>
                     <div class="col-md-3"></div>
@@ -113,6 +115,7 @@
                                 </div>
                                 
                                 
+
                               </div>
                             </div>
                       
@@ -122,15 +125,17 @@
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Explore</div>
                 
                   </div>
-        
+
 
 
 
 <!--Modal de criação de grupos-->
+
 <div class="modal fade " id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="false">
     <div class="modal-dialog modal-dialog-centered ">
         <div class="modal-content modal-style">
             <div class="modal-header">
+
                 <h5 class="modal-title" id="exampleModalLabel">Cadastro de grupo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -159,16 +164,19 @@
                 <button type="button" class="btn " data-bs-dismiss="modal">Cancelar</button>
                 <button (click)="cadastrar()" type="button" class="btn "
                     data-bs-dismiss="modal">Cadastrar</button>
+
             </div>
         </div>
     </div>
 </div>
 
 <!--Modal de atualização de usuarios-->
+
 <div class="modal fade " id="updateUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="false">
     <div class="modal-dialog modal-xl ">
         <div class="modal-content modal-style">
             <div class="modal-header ">
+
                 <h5 class="modal-title text-center" id="exampleModalLabel">Atualização de usuário</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white;"></button>
             </div>
@@ -220,8 +228,10 @@
 
             </div>
             <div class="modal-footer">
+
                 <button type="button" class="btn " data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn " data-bs-dismiss="modal"
+
                     (click)="atualizar()">Atualizar</button>
             </div>
         </div>

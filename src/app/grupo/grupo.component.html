@@ -1,4 +1,6 @@
 <!-- Container principal -->
+<div class="bold-line">
+
 <div id="main-container " class="container">
   <div class="row">
     <!--Imagem de capa-->
@@ -8,23 +10,24 @@
   </div>
 
 
-  <label id="nome-grupo" class="fs-1 fw-bold">{{grupo.nomeGrupo}}</label>
+  <label id="nome-grupo" class="fs-1 fw-bold titulos">{{grupo.nomeGrupo}}</label>
   
-  <div id="butoes-grupo">
-  <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editarGrupo">Editar
+<div class="col-md-12">
+  <div class="d-flex justify-content-end">
+  <button type="button" class="btn  text-light" data-bs-toggle="modal" data-bs-target="#editarGrupo" style="background-color:   #100f0d;">Editar
     grupo</button>
 
-  <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal"
-    data-bs-target="#deleteGrupo">Apagar grupo</button>
+  <button type="button" class="btn text-light ms-2" data-bs-toggle="modal"
+    data-bs-target="#deleteGrupo" style="background-color:   #100f0d;" >Apagar grupo</button>
   </div>
-  
+</div>
 
   <div class="row mt-3">
 
     <!--Botoes-->
     <div class="d-flex justify-content-center">
       
-      <button type="button" class="btn btn-outline-dark ms-2" data-bs-toggle="modal" data-bs-target="#criarPost">Nova
+      <button type="button" class="btn btn-outline-dark ms-2" data-bs-toggle="modal" data-bs-target="#criarPost" style="background-color:   #f4c320;" #5d5c5c>Nova
         Postagem</button>
 
       
@@ -33,101 +36,38 @@
     <hr class="mt-3">
   </div>
 
-  <div class="container">
+  <div class="row d-flex justify-content-center">
     
-    <div class="row justify-content-center mt-3">
-        <div class="col-md-9">
-
-
-            <nav class="nav nav-justified p-0 m-0">
-
-                <a class="nav-link active btn-outline text-light bg-gradient" style="background-color:   #a0a0a0;"
-                id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
-
-                <a (click)='findByIdUser()' class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
-            </nav>
-
-
-            <div class="tab-content mt-3" id="todosPost">
-
-                <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
-
-                    <div class="row justify-content-center align-items-end">
-                        <div class="col-md-8">
-
-                            <div class="card-columns" *ngFor='let item of grupo.postagem'>
-
-                                <div class="card mt-4 col-8">
-                                    <div class="card-title">
-                                      <div id="titulo" class="fw-bold mt-2 fs-3">{{item.tituloPost}}</div>
-                                  
-                                    </div>
-                                    <div class="card-body">
-                                      <blockquote class="blockquote mb-0">
-                                        <p>{{item.texto}}</p>
-                                        <hr>
-                                        <footer class="blockquote-footer fs-6 mt-1"> {{item.data | date: 'dd/MM/yyyy'}} | {{item.data | date: 'HH:mm'}}</footer>
-                                        <p class="card-text"><small class="text-muted">
-                                          by: {{item.usuario.nome}}
-                                        </small></p>
-                                      </blockquote>
-                                    </div>
-                                  </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="tab-pane fade show active" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
-
-                <div class="row justify-content-center align-items-end">
-                    <div class="col-md-8">
-
-                        <div class="card-columns">
-
-                            <div class="card mt-4 col-8"  *ngFor='let item of grupo.postagem'>
-                                <div class="card-title">
-                                  <div id="titulo" class="fw-bold mt-2 fs-3">{{item.tituloPost}}</div>
-                                  <button id="editar" type="button" class="btn btn-outline-success d-flex justify-content-end" (click)='findByIdPostGrupo()'  [routerLink]="['/post-edit', item.idPost]">Editar</button>
-                          
-                                  <button id="deletar" type="button" class="btn btn-outline-danger d-flex justify-content-end" data-bs-toggle="modal" data-bs-target="#deletePost">Apagar</button>
-                                </div>
-                                <div class="card-body">
-                                  <blockquote class="blockquote mb-0">
-                                    <p>{{item.texto}}</p>
-                                    <hr class="mt-1">
-                                    <footer class="blockquote-footer fs-6 mt-1"> {{item.data | date: 'dd/MM/yyyy'}} | {{item.data | date: 'HH:mm'}}</footer>
-                                    <p class="card-text"><small class="text-muted">
-                                      by: {{item.usuario.nome}}
-                                    </small></p>
-                                  </blockquote>
-                                </div>
-                              </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-            </div>
-
-        </div>
-
+    <!--Postagens-->
+    <div class="card mt-4 col-8" *ngFor='let item of grupo.postagem'>
+      <div class="card-title titulos">
+        <div id="titulo" class="fw-bold mt-2 fs-3">{{item.tituloPost}}</div>
+        
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{item.texto}}</p>
+          <footer class="blockquote-footer fs-6 mt-2">{{item.data | date: 'dd/MM/yyyy'}} | {{item.data | date: 'HH:mm'}}
+            <p class="card-text"><small class="text-muted">
+              Postado por: {{item.usuario.nome}}
+            </small></p>
+          </footer>
+     
+        </blockquote>
+      </div>
     </div>
+
+    
+  </div>
 </div>
+
 
   <!--MODAL EDITAR GRUPO-->
 
   <div class="modal fade" id="editarGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+    aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content modal-style">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Editar Grupo</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -168,11 +108,10 @@
 
   <!--MODAL DELETE GRUPO-->
 
-
   <div class="modal fade" id="deleteGrupo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+    aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content modal-style">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Apagar</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -194,16 +133,16 @@
 
   <!--MODAL POST POSTAGEM-->
   <div class="modal fade" id="criarPost" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
-    aria-hidden="true">
+    aria-hidden="true" data-bs-backdrop="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
+      <div class="modal-content modal-style">
         <div class="modal-header">
           <h5 class="modal-title" id="TituloModalCentralizado">Nova Postagem</h5>
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body"  *ngFor='let item of grupo.postagem'>
+        <div class="modal-body">
 
           <div class="form-group">
             <label for="titulo">Título</label>
@@ -230,4 +169,5 @@
     </div>
   </div>
 
+ 
  

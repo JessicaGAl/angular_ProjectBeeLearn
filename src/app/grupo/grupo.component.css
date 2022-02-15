@@ -1,0 +1,137 @@
+    #main-container{
+    position:relative;
+    }
+
+    .bold-line {
+      background:#e7e7e7;
+      position: absolute;
+  
+      margin: auto;
+      width: 100%;
+      height: 900px;
+      z-index: 1;
+      opacity:1;
+        background: url('https://i.imgur.com/kDHb7bd.png') left no-repeat;
+      background-size:cover;
+    }
+
+    #nome-grupo{
+    color: aliceblue;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 50px;
+
+    text-shadow: 
+    -1px -1px 0px rgb(0, 0, 0), 
+    -1px 1px 0px rgb(0, 0, 0),                    
+     1px -1px 0px rgb(0, 0, 0),                  
+     1px 0px 0px rgb(0, 0, 0);
+    }
+
+    #color-thead{
+    background-color: rgb(226, 226, 226);
+    }
+
+    #butoes-grupo{
+        position: absolute;
+    margin-top: -100px;
+    margin-left: 500px;
+    }
+
+    #editar{
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 700px;
+  
+    }
+
+    #deletar{
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 780px;
+  
+    }
+
+
+
+    #titulo{
+    width: 100%;
+
+    }
+
+    .modal-style{
+        background-color:   #f4c320;
+      }
+
+      .modal-style button{
+        background-color:   #100f0d;
+        color: white;
+      }
+
+      .modal-style h5{
+        font-family: 'Indie Flower', cursive;
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap%27');
+
+.titulos{
+  font-family: 'Indie Flower', cursive;
+}
+
+
+#main-container{
+    position:relative;
+    }
+
+    #img-perfil{
+    position: relative;
+    margin-top: -120px;
+    margin-left: 80px;
+    }
+
+    #color-thead{
+    background-image: url ('https://i.imgur.com/ZbAUZ5F.png');
+
+    }
+
+    .bold-line {
+      background:#e7e7e7;
+      position: absolute;
+  
+      margin: auto;
+      width: 100%;
+      height: 900px;
+      z-index: 1;
+      opacity:1;
+        background: url('https://i.imgur.com/kDHb7bd.png') left no-repeat;
+      background-size:cover;
+    }
+
+    
+
+
+
+    .sammy-wrap {
+      border-radius: 6px;
+      background-color: aliceblue;
+      border: 2px dashed gray;
+      max-width: 70%;
+      padding: 1em;
+      margin-bottom: 0.4em;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   

@@ -1,184 +1,67 @@
-<div class=" container-fluid bg-light">
-    <div class="row justify-content-center">
-        <div class="container">
+<div class="container">
 
-            <div class="row card  align-items-center flex-row justify-content-center mt-5 p-3 ml-5 bg-amarelo-card"
-                style="max-width: 1000px;" style="background-color:   #5d5c5c3f;">
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-9">
 
-                <div class="col-4">
-                    <div class="row d-flex justify-content-center mr-4 mb-lg-0">
-                        <img src="{{user.foto}}"
-                            width="200px" height="200px" alt="" class="rounded-circle">
-                    </div>
-                </div>
 
-                <div class="col-4">
-                    <h3>{{user.nome}}</h3>
-                    <h6>{{user.email}}</h6>
-                    <h6>{{user.tipo}}</h6>
-
-                    <button class="btn btn-dark mr-2" data-bs-toggle="modal" data-bs-bs-target="#cadastroGroup">Criar Grupo</button>
-                    <a class="btn btn-dark" href="#listGroup">Meus Grupos</a>
-                </div>
-
-                <div class="col-4 card">
-                    <div class="p-1">
-                        <h6 class="text-justify">{{user.bio}}</h6>
-                    </div>
-                </div>
-            </div>
-
-            <nav>
-                <div class="nav nav-tabs " style="max-width: 1000px;" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active text-secondary font-weight-bold " id="nav-home-tab"
-                        data-bs-toggle="tab" href="#nav-todas" role="tab" aria-controls="nav-home"
-                        aria-selected="true">Meus Grupos</a>
-                    <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-profile-tab"
-                        data-bs-toggle="tab" href="#nav-minhas" role="tab" aria-controls="nav-profile"
-                        aria-selected="false">Minhas Postagens</a>
-                    <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-contact-tab"
-                        data-bs-toggle="tab" href="#nav-tema" role="tab" aria-controls="nav-contact"
-                        aria-selected="false">Explore</a>
-                </div>
+            <nav class="nav nav-justified p-0 m-0" *ngIf='listaGrupo.length'>
+                <a class="nav-link active btn-outline text-light bg-gradient" style="background-color:   #a0a0a0;"
+                id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"  role="tab" aria-controls="pills-home" aria-selected="true">Meus Grupos</a>
+                <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Minhas
+                    Postagens</a>
+                <a class="nav-link text-light bg-gradient" style="background-color:   #a0a0a0;" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Explore</a>
             </nav>
 
+            <div class="tab-content" id="pills-tabContent">
+                
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <div class="row justify-content-center align-items-end">
+                        <div class="col-md-3" *ngFor='let i of listaGrupo'>
+            
+                            <div class="card-columns">
+                                <div class="card">
+                                    <img [routerLink]="['/grupo' , i.idGrupo]"  src="{{i.urlImagem}}"
+                                        class="card-img-top" style="cursor: pointer;">
+                
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{i.nomeGrupo}}</h5>
+                
+                                    </div>
+                                </div>
+                
+                            </div>
+                
+                        </div>
 
-        </div>
-
-    </div>
-</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!--MODAIS-->
-
-
-<!--Modal de lista grupos-->
-<div class="modal fade" id="listGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Lista de grupos</h5>
-                <button type="button" class="btn-close" data-bs-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!--Tabela de grupos-->
-                <table class="table table-borderless table-hover">
-                    <thead id="color-thead">
-                        <tr>
-                            <th scope="col">Nome do grupo</th>
-                            <th scope="col" class="d-flex justify-content-end">Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let i of listaGrupo">
-                            <td>{{i.nomeGrupo}}</td>
-                            <td data-bs-bs-dismiss="modal" [routerLink]="['/grupo' , i.idGrupo]" class="d-flex justify-content-end"><button class="btn btn-success">Entrar</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-bs-dismiss="modal">Fechar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Modal de criação de grupos-->
-<div class="modal fade" id="cadastroGroup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cadastro de grupo</h5>
-                <button type="button" class="btn-close" data-bs-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-
-                <div class="form-floating mb-3">
-                    <input [(ngModel)]="grupo.nomeGrupo" type="text" class="form-control" id="floatingInput" placeholder="Digite o nome do grupo">
-                    <label for="floatingInput">Nome</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input [(ngModel)]="grupo.descricao" type="text" class="form-control" id="floatingInput" placeholder="Digite a descrição do grupo">
-                    <label for="floatingPassword">Descrição</label>
-                  </div>
-                  <div class="form-floating">
-                    <input [(ngModel)]="grupo.urlImagem" type="text" class="form-control" id="floatingInput" placeholder="Coloque a url de imagem">
-                    <label for="floatingPassword">Url de imagem</label>
-                  </div>
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-bs-dismiss="modal">Cancelar</button>
-                <button (click)="cadastrar()" type="button" class="btn btn-success" data-bs-bs-dismiss="modal">Cadastrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--Modal de atualização de usuarios-->
-<div class="modal fade" id="updateUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header ">
-                <h5 class="modal-title text-center" id="exampleModalLabel">Atualização de usuário</h5>
-                <button type="button" class="btn-close" data-bs-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body container">
-               
-                <div class="row container">
-                    <div class="form-floating mb-3 col-md-6">
-                        <input type="text" class="form-control" id="nome" placeholder="Digite o nome do grupo" [(ngModel)]="user.nome">
-                        <label for="nome"> Nome</label>
-                      </div>
-                      <div class="form-floating mb-3 col-md-6">
-                        <input type="email" class="form-control" id="email" placeholder="Digite a descrição do grupo" [(ngModel)]="user.email">
-                        <label for="email">Email</label>
-                      </div>
-
-                      <div class="form-floating mb-3 col-md-6">
-                        <input type="text" class="form-control" id="foto" placeholder="Coloque a url de imagem" [(ngModel)]="user.foto">
-                        <label for="foto">Url da foto</label>
-                      </div>
-                      <div class="mb-1 col-md-6">
-                        <label for="tipo"></label>
-                        <select name="tipo" id="tipo" class="form-control" (change)='tipoUser($event)'>
-                            <option>Selecione um tipo de usuário:</option>
-                            <option value="aluno">Aluno</option>
-                            <option value="instrutor">Instrutor</option>
-                        </select>
-                      </div>
-
-                          <div class="form-floating mb-3 col-md-6">
-                            <input type="password" class="form-control" id="senha" placeholder="Coloque a url de imagem" (input)='confirmSenha($event)'>
-                            <label for="senha">Senha</label>
-                          </div>
-                          <div class="form-floating mb-3 col-md-6">
-                            <input type="password" class="form-control" id="confSenha" placeholder="Coloque a url de imagem" [(ngModel)]='user.senha'>
-                            <label for="confSenha">Confirme a senha</label>
-                          </div>
-                          <div class="col-md-12 form-floating">
-                            <input type="text" class="form-control" id="Bio" placeholder="Coloque a url de imagem" [(ngModel)]="user.bio">
-                            <label for="Bio">Bio</label>
-                          </div>
+                    </div>               
                 </div>
-               
+            
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="card-columns">
+                          <div class="card text-center" *ngFor='let item of user.postagem'>
+                            <div class="card-body">
+                              <h5 class="card-title m-0">{{item.tituloPost}}</h5>
+                              <p class="card-text mt-3">{{item.texto}}</p>
+                              <p class="card-text"><small class="text-muted">
+                                {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+                              </small></p>
+                  
+                            </div>
+                            <button id="editar" type="button" class="btn btn-outline-success d-flex justify-content-end" (click)='findByIdGrupo()'  [routerLink]="['/post-edit', item.idPost]">Editar</button>
 
+                          </div>
+                        </div>
+                  
+                      
+                </div>
+            
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Explore</div>
+            
+              </div>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" data-bs-bs-dismiss="modal" (click)="atualizar()">Atualizar</button>
-            </div>
         </div>
+
     </div>
+</div>
+
 </div>

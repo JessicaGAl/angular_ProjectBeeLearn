@@ -16,22 +16,22 @@ export class GrupoService {
   }
 
   getAllGrupo(): Observable<Grupo[]>{
-    return this.http.get<Grupo[]>('http://localhost:8080/grupo', this.token)
+    return this.http.get<Grupo[]>('https://beelearn.herokuapp.com/grupo', this.token)
   }
 
   getByIdGrupo(idGrupo: number): Observable<Grupo>{
-    return this.http.get<Grupo>(`http://localhost:8080/grupo/${idGrupo}`, this.token)
+    return this.http.get<Grupo>(`https://beelearn.herokuapp.com/grupo/${idGrupo}`, this.token)
   }
 
   putGrupo(grupo: Grupo): Observable<Grupo>{
-    return this.http.put<Grupo>('http://localhost:8080/grupo', grupo, this.token)
+    return this.http.put<Grupo>('https://beelearn.herokuapp.com/grupo', grupo, this.token)
   }
 
   deleteGrupo(idGrupo: number) {
-    return this.http.delete(`http://localhost:8080/grupo/${idGrupo}`, this.token)
+    return this.http.delete(`https://beelearn.herokuapp.com/grupo/${idGrupo}`, this.token)
   }
 
   postGrupo(grupo: Grupo): Observable<Grupo>{
-    return this.http.post<Grupo>('http://localhost:8080/grupo', grupo, this.token)
+    return this.http.post<Grupo>('https://beelearn.herokuapp.com/grupo', grupo, this.token)
   }
 }

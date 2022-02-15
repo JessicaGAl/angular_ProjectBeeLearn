@@ -16,22 +16,22 @@ export class PostagemService {
   }
 
   getAllPostagem(): Observable<Postagem[]>{
-    return this.http.get<Postagem[]>('http://localhost:8080/postagens', this.token)
+    return this.http.get<Postagem[]>('https://beelearn.herokuapp.com/postagens', this.token)
   }
 
   getByIdPost(idPost: number): Observable<Postagem>{
-    return this.http.get<Postagem>(`http://localhost:8080/postagens/${idPost}`, this.token)
+    return this.http.get<Postagem>(`https://beelearn.herokuapp.com/postagens/${idPost}`, this.token)
   }
 
   postPostagem(postagem: Postagem) : Observable<Postagem>{
-    return this.http.post<Postagem>('http://localhost:8080/postagens', postagem, this.token)
+    return this.http.post<Postagem>('https://beelearn.herokuapp.com/postagens', postagem, this.token)
   }
 
   putPostagem(grupo: Postagem): Observable<Postagem>{
-    return this.http.put<Postagem>('http://localhost:8080/postagens', grupo, this.token)
+    return this.http.put<Postagem>('https://beelearn.herokuapp.com/postagens', grupo, this.token)
   }
 
   deletePostagem(idPost: number) {
-    return this.http.delete(`http://localhost:8080/postagens/${idPost}`, this.token)
+    return this.http.delete(`https://beelearn.herokuapp.com/${idPost}`, this.token)
   }
 }

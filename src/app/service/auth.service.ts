@@ -19,16 +19,16 @@ export class AuthService {
   ) { }
 
   getByIdUser(idUser: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`http://localhost:8080/usuarios/${idUser}`)
+    return this.http.get<Usuario>(`https://beelearn.herokuapp.com/${idUser}`)
   }
 
 
   entrar(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>('http://localhost:8080/usuarios/logar', userLogin)
+    return this.http.post<UserLogin>('https://beelearn.herokuapp.com/usuarios8/logar', userLogin)
   }
 
   cadastrar(user: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('http://localhost:8080/usuarios/cadastrar', user)
+    return this.http.post<Usuario>('https://beelearn.herokuapp.com/usuarios/cadastrar', user)
 
   }
 

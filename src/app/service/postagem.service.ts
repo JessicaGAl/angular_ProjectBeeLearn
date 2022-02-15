@@ -32,6 +32,6 @@ export class PostagemService {
   }
 
   deletePostagem(idPost: number) {
-    return this.http.delete(`https://beelearn.herokuapp.com/${idPost}`, this.token)
+    return this.http.delete(`https://beelearn.herokuapp.com/postagens/${idPost}`, this.token)
   }
 }

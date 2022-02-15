@@ -19,7 +19,7 @@ export class AuthService {
   ) { }
 
   getByIdUser(idUser: number): Observable<Usuario>{
-    return this.http.get<Usuario>(`https://beelearn.herokuapp.com/${idUser}`)
+    return this.http.get<Usuario>(`https://beelearn.herokuapp.com/usuarios/${idUser}`)
   }
 
 

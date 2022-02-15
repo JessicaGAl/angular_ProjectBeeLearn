@@ -24,7 +24,7 @@ export class AuthService {
 
 
   entrar(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>('https://beelearn.herokuapp.com/usuarios8/logar', userLogin)
+    return this.http.post<UserLogin>('https://beelearn.herokuapp.com/usuarios/logar', userLogin)
   }
 
   cadastrar(user: Usuario): Observable<Usuario>{
